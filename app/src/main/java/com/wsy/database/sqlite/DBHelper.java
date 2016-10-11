@@ -4,6 +4,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.wsy.database.sqlite.UserAO.Table;
+import com.wsy.database.sqlite.UserAO.UserColumn;
+
 /**
  * Created by songyewang on 16/10/10.
  */
@@ -18,7 +21,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + Table.c_user + "("
+                + UserColumn.userId + " TEXT PRIMARY KEY,"
+                + UserColumn.userName + " TEXT,"
+                + UserColumn.userAge + " INTEGER"
+                + ");");
     }
 
     @Override
